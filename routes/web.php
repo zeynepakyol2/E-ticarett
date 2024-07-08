@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','AnasayfaController@index')->name('anasayfa');
 Route::get('/merhaba',function (){
     return "merhaba";
 });
