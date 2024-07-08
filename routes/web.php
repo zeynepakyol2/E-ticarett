@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AnasayfaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','AnasayfaController@index')->name('anasayfa');
-Route::get('/merhaba',function (){
-    return "merhaba";
-});
-Route::get('api/v1/merhaba',function(){
-    return ['mesaj'=>'merhaba'];
-});
-Route::get('urun/{urunadi}/{id?}',function ($urunadi,$id=4){
-    return "urun adı: $id $urunadi";
-})->name('urun_detay'); //name fonksiyonu ile bu route a erişebilriiz
-Route::get('/kampanya',function (){
-    return redirect()->route('urun_detay',['urunadi'=>'elma','id'=>5]);
-});
+
+Route::get('/', [AnasayfaController::class, 'index'])->name('anasayfa');
+
